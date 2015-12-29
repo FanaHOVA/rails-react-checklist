@@ -1,0 +1,11 @@
+  <div class="todo_list">
+    <h1 class="ui header">
+      <i class="browser icon"></i>
+      <div class="content">
+        <%= @title %>
+      </div>
+    </h1>
+
+    <%= react_component 'TodoList', { items: @items, collection_id: params[:id]} %>
+
+  </div>

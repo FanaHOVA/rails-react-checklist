@@ -32,7 +32,7 @@
   handle_change: (e) ->
     item = @state.item
     item.done = e.target.checked
-    
+
     $.ajax(
        url: "/items/#{@state.item.id}.json"
        data: {item: @clean_object(item)}

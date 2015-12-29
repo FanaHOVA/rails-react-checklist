@@ -5,6 +5,7 @@
   getInitialState: ->
     items: @props.items
     search: ''
+    collection_id: @props.collection_id
 
   render: ->
     items = @state.items
@@ -51,7 +52,7 @@
     if name.length > 0
       $.ajax(
          url: "/items.json"
-         data: {item: {name: name, done: false}}
+         data: {item: {name: name, done: false, collection_id: @props.collection_id}}
          type: "POST"
       ).done (item) =>
         $('#item_name').val('')
