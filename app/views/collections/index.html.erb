@@ -1,5 +1,12 @@
 <center><b>All of the collections here</b></center>
 
-<% @collections.each do |c| %>
-  <%= link_to c.title, collection_path(c) %> | <%= c.items.count %> items
-<% end %>
+<ul class="list-group" style='width:400px'>
+  <% @collections.each do |c| %>
+    <%= link_to(c) do %>
+      <li class="list-group-item">
+        <span class="badge"><%= c.items.count %></span>
+        <%= c.title %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

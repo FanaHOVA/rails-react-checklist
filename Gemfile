@@ -21,6 +21,8 @@ gem 'sprockets-coffee-react'
 gem 'semantic-ui-sass'
 gem 'normalize-rails'
 
+gem 'devise'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

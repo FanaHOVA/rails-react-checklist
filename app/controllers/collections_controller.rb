@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @collections = Collection.all
@@ -8,6 +9,10 @@ class CollectionsController < ApplicationController
   def show
     @items = @collection.items
     @title = @collection.title
+  end
+
+  def new
+    @collection = Collection.new
   end
 
   def create
@@ -52,6 +57,6 @@ class CollectionsController < ApplicationController
   end
 
   def collection_params
-    params.require(:collection).permit(:name, :done)
+    params.require(:collection).permit(:title)
   end
 end
