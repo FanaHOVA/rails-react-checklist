@@ -3,7 +3,8 @@ class CollectionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @collections = Collection.all
+    @collections = current_user.collections
+    @items = current_user.items
   end
 
   def show
@@ -22,6 +23,7 @@ class CollectionsController < ApplicationController
       if @collection.save
         format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
         format.json { render :show, status: :created, location: @collection }
+        current_user.collections << @collection
       else
         format.html { render :new }
         format.json { render json: @collection.errors, status: :unprocessable_entity }

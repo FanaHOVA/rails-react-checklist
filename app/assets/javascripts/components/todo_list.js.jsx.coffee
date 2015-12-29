@@ -32,7 +32,7 @@
             handle_delete: @handle_delete
       else
         div {className: 'ui attached segment'},
-          "Nothing..."
+          "No items yet..."
       div {className: "ui botoom attached segment"},
         form { onSubmit: @handle_submit},
           div {className: "ui action fluid input"},

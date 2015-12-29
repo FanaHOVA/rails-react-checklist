@@ -1,12 +1,31 @@
-<center><b>All of the collections here</b></center>
+<center><b></b></center>
 
-<ul class="list-group" style='width:400px'>
-  <% @collections.each do |c| %>
-    <%= link_to(c) do %>
-      <li class="list-group-item">
-        <span class="badge"><%= c.items.count %></span>
-        <%= c.title %>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
+<div class='row'>
+  <div class='col-md-6'>
+    <ul class="list-group" style='width:400px; margin: 50px auto'>
+      <% @collections.each do |c| %>
+        <%= link_to(c) do %>
+          <li class="list-group-item" style="font-style: italic; font-weight: 600; font-size: 20px; text-decoration: none">
+            <span class="badge" style="margin-top: 5px;"><%= c.items.count %></span>
+            <%= c.title %>
+          </li>
+        <% end %>
+      <% end %>
+      <%= link_to(new_collection_path) do %>
+      <button type="button" class="btn btn-success" style="margin-top:10px">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
+      </button>
+      <% end %>
+    </ul>
+  </div>
+  <div class='col-md-6'>
+    <div class="todo_list">
+      <h1 class="ui header">
+        <div class="content">
+          For things that don't belong anywhere else
+        </div>
+      </h1>
+      <%= react_component 'TodoList', { items: @items, user_id: current_user.id} %>
+    </div>
+  </div>
+</div>
