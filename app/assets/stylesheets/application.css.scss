@@ -9,6 +9,29 @@
   margin-right: auto;
 }
 
+.collections-list
+{
+  max-width: 400px;
+  margin: 0 auto;
+
+  li {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+
+    .badge {
+      margin-top: 5px;
+    }
+  }
+}
+
+.collections-add
+{
+  max-width: 400px;
+  margin: 10px 0px;
+}
+
 .list-group
 {
   a
