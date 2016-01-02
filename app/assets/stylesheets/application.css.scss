@@ -1,10 +1,52 @@
 @import "normalize-rails";
 @import "semantic-ui";
 @import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css";
+@import "https://bootswatch.com/flatly/bootstrap.min.css";
 
 .todo_list {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
+}
+
+.list-group
+{
+  a
+  {
+    color: #00B5AD;
+    &:hover {
+      text-decoration: none;
+      color: #009A93;
+    }
+  }
+}
+
+i.large.icon {
+  font-size: 2em;
+}
+
+.ui.big.input {
+  font-size: 1.6em;
+}
+
+.ui.checkbox .box:after, .ui.checkbox label:after {
+    width: 0.6em;
+    height: 0.35em;
+}
+
+.collections-add {
+
+}
+
+@media (max-width: 400px) {
+  .homepage-row {
+    padding: 0px 10px;
+  }
+}
+
+@media (max-width: 320px) {
+
+  .collections-add {
+      width: 300px;
+  }
 }

@@ -2,7 +2,12 @@
     <h1 class="ui header">
       <i class="browser icon"></i>
       <div class="content">
-        <%= @title %>
+        <%= @title %> &nbsp <%= link_to "<i class='red remove circle link icon'></i>".html_safe,
+                                        @collection,
+                                        method: :delete,
+                                        class: 'red remove circle link icon',
+                                        data: {confirm: "Are you sure you want to delete this collection? You'll lose all of its items as well"}
+                             %>
       </div>
     </h1>
 

@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def user_items
+    @item = current_user.items
+  end
+
   def edit
   end
 
@@ -60,6 +64,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :done, :collection_id)
+    params.require(:item).permit(:name, :done, :collection_id, :user_id)
   end
 end
