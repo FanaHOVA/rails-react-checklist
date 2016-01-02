@@ -5,7 +5,6 @@
   getInitialState: ->
     items: @props.items
     search: ''
-    collection_id: @props.collection_id
 
   render: ->
     items = @state.items
@@ -52,7 +51,7 @@
     if name.length > 0
       $.ajax(
          url: "/items.json"
-         data: {item: {name: name, done: false, collection_id: @props.collection_id}}
+         data: {item: {name: name, done: false, collection_id: @props.collection_id, user_id: @props.user_id}}
          type: "POST"
       ).done (item) =>
         $('#item_name').val('')
@@ -63,7 +62,7 @@
 
   handle_delete: ->
     $.ajax(
-       url: "/items.json"
+       url: "/users/#{@props.user_id}.json"
        type: "GET"
     ).done (items) =>
       @setState items: items

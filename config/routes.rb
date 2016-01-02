@@ -1,17 +1,18 @@
 Rails.application.routes.draw do
+  get 'users/:id', to: 'user_items#show'
+
   devise_for :users
 
   devise_scope :user do
     get '/login' => 'devise/sessions#new'
     get '/logout' => 'devise/sessions#destroy'
   end
-  
+
   resources :collections
 
   resources :items
 
   get 'dashboard', to: 'items#dashboard'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

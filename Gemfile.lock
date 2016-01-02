@@ -39,6 +39,8 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.10)
+    bootswatch-rails (3.3.5)
+      railties (>= 3.1)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -159,6 +161,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootswatch-rails
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)

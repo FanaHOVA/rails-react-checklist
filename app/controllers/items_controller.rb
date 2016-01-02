@@ -16,6 +16,10 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def user_items
+    @item = current_user.items
+  end
+
   def edit
   end
 

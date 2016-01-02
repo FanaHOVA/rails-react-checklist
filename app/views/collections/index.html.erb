@@ -1,8 +1,17 @@
-<center><b></b></center>
-
-<div class='row'>
+<div class='row homepage-row'>
   <div class='col-md-6'>
-    <ul class="list-group" style='width:400px; margin: 50px auto'>
+    <center>
+      <h3>Your Collections</h3>
+        <%= form_for(@collection, remote: true) do |f| %>
+        <div class="input-group" class='collections-add' style='max-width: 400px; margin: 10px 0px'>
+          <%= f.text_field :title, id: 'item_name', class: 'form-control', style: 'background-image: none; background-position: 0% 0%; background-repeat: repeat;' %>
+          <span class="input-group-btn">
+            <%= f.submit class: 'btn btn-default teal', value: 'Add' %>
+          </span>
+        </div>
+        <% end %>
+    </center>
+    <ul class="list-group" style='max-width: 400px; margin: 0 auto'>
       <% @collections.each do |c| %>
         <%= link_to(c) do %>
           <li class="list-group-item" style="font-style: italic; font-weight: 600; font-size: 20px; text-decoration: none">
@@ -11,20 +20,13 @@
           </li>
         <% end %>
       <% end %>
-      <%= link_to(new_collection_path) do %>
-      <button type="button" class="btn btn-success" style="margin-top:10px">
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New
-      </button>
-      <% end %>
     </ul>
   </div>
   <div class='col-md-6'>
+    <center>
+      <h3>For your generic todos</h3>
+    </center>
     <div class="todo_list">
-      <h1 class="ui header">
-        <div class="content">
-          For things that don't belong anywhere else
-        </div>
-      </h1>
       <%= react_component 'TodoList', { items: @items, user_id: current_user.id} %>
     </div>
   </div>
