@@ -1,7 +1,7 @@
 # @cjsx React.DOM
 {button,i, div, ul, li, input, form} = React.DOM
 
-@TodoList = React.createClass
+@UserTodoList = React.createClass
   getInitialState: ->
     items: @props.items
     search: ''
@@ -31,7 +31,7 @@
             handle_delete: @handle_delete
       else
         div {className: 'ui attached segment'},
-          "Nothing..."
+          "No items yet..."
       div {className: "ui botoom attached segment"},
         form { onSubmit: @handle_submit},
           div {className: "ui action fluid input"},
@@ -51,7 +51,7 @@
     if name.length > 0
       $.ajax(
          url: "/items.json"
-         data: {item: {name: name, done: false, collection_id: @props.collection_id}}
+         data: {item: {name: name, done: false, user_id: @props.user_id}}
          type: "POST"
       ).done (item) =>
         $('#item_name').val('')
@@ -62,7 +62,7 @@
 
   handle_delete: ->
     $.ajax(
-       url: "/collections/#{@props.collection_id}.json"
+       url: "/users_items/#{@props.user_id}.json"
        type: "GET"
     ).done (items) =>
       @setState items: items
