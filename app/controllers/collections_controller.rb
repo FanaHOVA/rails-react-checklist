@@ -4,7 +4,6 @@ class CollectionsController < ApplicationController
 
   def index
     @collections = current_user.collections
-    @items = current_user.items
     @collection = Collection.new
   end
 
