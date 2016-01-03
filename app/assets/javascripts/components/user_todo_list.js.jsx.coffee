@@ -39,7 +39,8 @@
               type: 'text'
               name: 'item[name]'
               placeholder: 'Task...'
-              id: 'item_name' }
+              id: 'item_name'
+              className: 'item_name'}
             div {
               className: 'ui teal left labeled button',
               onClick: @handle_submit},
@@ -47,7 +48,8 @@
 
   handle_submit: (e) ->
     e.preventDefault()
-    name = $('#item_name').val()
+    name = $('.item_name').val()
+    console.log($('.item_name').val())
     if name.length > 0
       $.ajax(
          url: "/items.json"
